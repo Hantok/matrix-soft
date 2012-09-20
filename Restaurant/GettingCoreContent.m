@@ -837,7 +837,8 @@
     
     NSError *err;
     NSUInteger count = [context countForFetchRequest:request error:&err];
-    if(count == NSNotFound) {
+    if(count == NSNotFound)
+    {
         //Handle error
     }
     
