@@ -123,6 +123,7 @@
     }
     
 //    cell.dateOfOrder.text = [self.historyArray objectAtIndex:indexPath.row];
+//    self.addressDescriptionLabel.text = [NSString stringWithFormat:[self.historyDictionary valueForKey:@"street"], @", ", [self.historyDictionary valueForKey:@"house"]];
     cell.dateOfOrder.text = [[self.historyArray objectAtIndex:indexPath.row] valueForKey:@"date"];
     cell.numberOfOrder.text = [[self.historyArray objectAtIndex:indexPath.row] valueForKey:@"orderID"];
     
