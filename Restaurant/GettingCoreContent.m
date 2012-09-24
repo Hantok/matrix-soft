@@ -419,37 +419,78 @@
     return [resultOfARequest copy]; 
 }
 
-- (NSArray *)fetchProductWithId:(NSString *)productId
+- (NSArray *)fetchProductWithId:(NSString *)productsIds
+                     withCounts:(NSString *)productsCounts
 {
-    NSFetchRequest * request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"Products" inManagedObjectContext:self.managedObjectContext]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"underbarid==%@", productId]];
+    NSArray *arrayOfIds = [productsIds componentsSeparatedByString:@";"];
+    NSArray *arrayOfCounts = [productsCounts componentsSeparatedByString:@";"];
     
-    NSError *error;
-    NSArray *debug= [self.managedObjectContext executeFetchRequest:request error:&error];
-    NSMutableArray *resultOfARequest;
-    if (debug.count != 0)
-    {
-//        [request setEntity:[NSEntityDescription entityForName:@"Products_translation" inManagedObjectContext:self.managedObjectContext]];
-//        [request setPredicate:[NSPredicate predicateWithFormat:@"idLanguage==%@", productId]];
+//    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+//    [request setEntity:[NSEntityDescription entityForName:@"Products" inManagedObjectContext:self.managedObjectContext]];
+//    [request setPredicate:[NSPredicate predicateWithFormat:@"underbarid==%@", productsIds]];
+//
+//    NSError *error;
+//    NSArray *debug= [self.managedObjectContext executeFetchRequest:request error:&error];
+//    NSMutableArray *resultOfARequest;
+//    if (debug.count != 0)
+//    {        
+//        resultOfARequest = [[NSMutableArray alloc] init];
+//        request = [NSFetchRequest fetchRequestWithEntityName:@"Products_translation"];
+//        request.predicate = [NSPredicate predicateWithFormat:@"idLanguage == %@ && idProduct == %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultLanguageId"], [[debug objectAtIndex:0] valueForKey:@"underbarid"]];
+//        
+//        [resultOfARequest addObjectsFromArray:debug];
+//        [resultOfARequest addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:&error]];
+//
+//                return [resultOfARequest copy];
+//    }
+//    else
+//    {
+//        return nil;
+//    }
+    
+    if (arrayOfIds.count != 0) {
         
-        resultOfARequest = [[NSMutableArray alloc] init];
-        request = [NSFetchRequest fetchRequestWithEntityName:@"Products_translation"];
-        request.predicate = [NSPredicate predicateWithFormat:@"idLanguage == %@ && idProduct == %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultLanguageId"], [[debug objectAtIndex:0] valueForKey:@"underbarid"]];
+        NSMutableArray *arrayToGet = [[NSMutableArray alloc] init];
         
-        [resultOfARequest addObjectsFromArray:debug];
-        [resultOfARequest addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:&error]];
+        NSMutableArray *resultOfARequest;
+        
+        for (int i = 0; i < arrayOfIds.count; i++) {
+            
+            NSFetchRequest * request = [[NSFetchRequest alloc] init];
+            [request setEntity:[NSEntityDescription entityForName:@"Products" inManagedObjectContext:self.managedObjectContext]];
+            [request setPredicate:[NSPredicate predicateWithFormat:@"underbarid==%@", [arrayOfIds objectAtIndex:i]]];
+            NSError *error;
+            NSArray *debug= [self.managedObjectContext executeFetchRequest:request error:&error];
+            
+            if (debug.count != 0)
+            {
+                resultOfARequest = [[NSMutableArray alloc] init];
+                request = [NSFetchRequest fetchRequestWithEntityName:@"Products_translation"];
+                request.predicate = [NSPredicate predicateWithFormat:@"idLanguage == %@ && idProduct == %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultLanguageId"], [[debug objectAtIndex:0] valueForKey:@"underbarid"]];
+                
+                [resultOfARequest addObjectsFromArray:debug];
+                [resultOfARequest addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:&error]];
+                
+                NSMutableDictionary *resultDictionary = [[NSMutableDictionary alloc] init];
+                [resultDictionary setObject:resultOfARequest forKey:@"resultArray"];
+                [resultDictionary setObject:[arrayOfCounts objectAtIndex:i] forKey:@"count"];
+                
+                [arrayToGet addObject:resultDictionary];
+//                return [resultOfARequest copy];
+            }
+            else
+            {
+                return nil;
+            }
 
+        }
         
-//        NSManagedObject *objectToGet = [debug objectAtIndex:0];
-        return [resultOfARequest copy];
+        return [arrayToGet mutableCopy];
     }
     else
     {
         return nil;
     }
-
-//    return  nil;
 }
 
 - (void)SavePictureToCoreData:(NSString *)idPicture toData:(NSData *)data

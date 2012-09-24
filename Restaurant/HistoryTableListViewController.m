@@ -204,7 +204,8 @@
 {    
 //    [segue.destinationViewController setTempStr:[self.historyArray objectAtIndex:self.selectedRow]];
     [segue.destinationViewController setHistoryDictionary:[self.historyArray objectAtIndex:self.selectedRow]];
-    [segue.destinationViewController setProductsArray:[self.content fetchProductWithId:@"158"]];
+    [segue.destinationViewController setProductsArray:[self.content fetchProductWithId:[[self.historyArray objectAtIndex:self.selectedRow] valueForKey:@"productsIDs"] withCounts:[[self.historyArray objectAtIndex:self.selectedRow] valueForKey:@"productsCounts"]]];
+//    [self.content fetchProductWithId:[[self.historyArray objectAtIndex:self.selectedRow] valueForKey:@"productsIDs"] withCounts:[[self.historyArray objectAtIndex:self.selectedRow] valueForKey:@"productsCounts"]];
 }
 
 @end

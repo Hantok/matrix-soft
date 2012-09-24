@@ -114,10 +114,10 @@
     self.metroDescriptionLabel.text = [self.historyDictionary valueForKey:@"metro"];
     self.additionalDescriptionLabel.text = [self.historyDictionary valueForKey:@"additional_info"];
     
-    self.productName.text = [[self.productsArray objectAtIndex:1] valueForKey:@"nameText"];
-    self.productsCount.text = [self.historyDictionary valueForKey:@"productsCounts"];
+    self.productName.text = [[[[self.productsArray objectAtIndex:0] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
+    self.productsCount.text = [[self.productsArray objectAtIndex:0] valueForKey:@"count"];
     int productCount = [[self.historyDictionary valueForKey:@"productsCounts"] intValue];
-    float productPrice = [[[self.productsArray objectAtIndex:0] valueForKey:@"price"] floatValue];
+    float productPrice = [[[[[self.productsArray objectAtIndex:0] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue];
     self.productPriceSumm.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
 }
 
