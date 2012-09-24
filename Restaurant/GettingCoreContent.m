@@ -419,6 +419,39 @@
     return [resultOfARequest copy]; 
 }
 
+- (NSArray *)fetchProductWithId:(NSString *)productId
+{
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Products" inManagedObjectContext:self.managedObjectContext]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"underbarid==%@", productId]];
+    
+    NSError *error;
+    NSArray *debug= [self.managedObjectContext executeFetchRequest:request error:&error];
+    NSMutableArray *resultOfARequest;
+    if (debug.count != 0)
+    {
+//        [request setEntity:[NSEntityDescription entityForName:@"Products_translation" inManagedObjectContext:self.managedObjectContext]];
+//        [request setPredicate:[NSPredicate predicateWithFormat:@"idLanguage==%@", productId]];
+        
+        resultOfARequest = [[NSMutableArray alloc] init];
+        request = [NSFetchRequest fetchRequestWithEntityName:@"Products_translation"];
+        request.predicate = [NSPredicate predicateWithFormat:@"idLanguage == %@ && idProduct == %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultLanguageId"], [[debug objectAtIndex:0] valueForKey:@"underbarid"]];
+        
+        [resultOfARequest addObjectsFromArray:debug];
+        [resultOfARequest addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:&error]];
+
+        
+//        NSManagedObject *objectToGet = [debug objectAtIndex:0];
+        return [resultOfARequest copy];
+    }
+    else
+    {
+        return nil;
+    }
+
+//    return  nil;
+}
+
 - (void)SavePictureToCoreData:(NSString *)idPicture toData:(NSData *)data
 {
     NSFetchRequest * request = [[NSFetchRequest alloc] init];

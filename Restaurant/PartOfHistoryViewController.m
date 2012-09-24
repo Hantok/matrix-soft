@@ -61,6 +61,9 @@
 @synthesize cityDescriptionLabel = _cityDescriptionLabel;
 @synthesize metroDescriptionLabel = _metroDescriptionLabel;
 @synthesize additionalDescriptionLabel = _additionalDescriptionLabel;
+@synthesize db = _db;
+@synthesize productName = _productName;
+@synthesize productsArray = _productsArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,7 +79,7 @@
 //    self.messageLabel.text = self.tempStr;
     
     [super viewDidLoad];
-        
+                    
     CAGradientLayer *mainGradient = [CAGradientLayer layer];
     mainGradient.frame = self.mainView.bounds;
     mainGradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor],(id)[[UIColor blackColor] CGColor], nil];
@@ -97,15 +100,25 @@
     self.infoOfOrderDetailView.frame = CGRectMake(20, 30, 272, self.additionalDescriptionLabel.frame.origin.y + self.additionalDescriptionLabel.frame.size.height + 10);
     
     self.infoOfProductInOrderInnerView.frame = CGRectMake(0, 1, self.secondContainerWidth, self.secondContainerHeight - 2);
-    [self.tempLabel2 sizeToFit];
-    self.infoOfProductInOrderDetailView.frame = CGRectMake(20, 30, 272, self.tempLabel2.frame.size.height + 10);
-                
+//    [self.tempLabel2 sizeToFit];
+//    self.infoOfProductInOrderDetailView.frame = CGRectMake(20, 30, 272, self.tempLabel2.frame.size.height + 10);
+    
+    
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(320 , 420)];
     
 //    self.addressDescriptionLabel.text = [self.historyDictionary valueForKey:@"street"];
-    self.addressDescriptionLabel.text = [NSString stringWithFormat:[self.historyDictionary valueForKey:@"street"], @", ", [self.historyDictionary valueForKey:@"house"]];
+        
+    self.addressDescriptionLabel.text = [NSString stringWithFormat:@"%@%@%@%@%@", [self.historyDictionary valueForKey:@"street"], @", ", [self.historyDictionary valueForKey:@"house"], @"/", [self.historyDictionary valueForKey:@"room_office"]];
+    self.cityDescriptionLabel.text = [self.historyDictionary valueForKey:@"city"];
+    self.metroDescriptionLabel.text = [self.historyDictionary valueForKey:@"metro"];
+    self.additionalDescriptionLabel.text = [self.historyDictionary valueForKey:@"additional_info"];
     
+    self.productName.text = [[self.productsArray objectAtIndex:1] valueForKey:@"nameText"];
+    self.productsCount.text = [self.historyDictionary valueForKey:@"productsCounts"];
+    int productCount = [[self.historyDictionary valueForKey:@"productsCounts"] intValue];
+    float productPrice = [[[self.productsArray objectAtIndex:0] valueForKey:@"price"] floatValue];
+    self.productPriceSumm.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
 }
 
 - (void)viewDidUnload
@@ -130,6 +143,9 @@
     [self setAdditionalDescriptionLabel:nil];
     [self setAddressLabel:nil];
     [self setAddressDescriptionLabel:nil];
+    [self setProductName:nil];
+    [self setProductsCount:nil];
+    [self setProductPriceSumm:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

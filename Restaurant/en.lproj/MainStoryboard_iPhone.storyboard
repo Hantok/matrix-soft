@@ -1549,11 +1549,11 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="jdE-co-01x">
-                                        <rect key="frame" x="0.0" y="61" width="320" height="32"/>
+                                        <rect key="frame" x="0.0" y="61" width="320" height="282"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="p3m-rO-0h0">
-                                                <rect key="frame" x="0.0" y="1" width="320" height="30"/>
+                                                <rect key="frame" x="0.0" y="1" width="320" height="242"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You are ordered:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hxp-Xs-xtq">
@@ -1578,14 +1578,35 @@
                                                             <action selector="infoOfProductInOrder:" destination="470-x0-Ti8" eventType="touchUpInside" id="Mbq-KP-uRm"/>
                                                         </connections>
                                                     </button>
-                                                    <view alpha="0.0" contentMode="scaleToFill" id="DQJ-0Z-0Bo">
-                                                        <rect key="frame" x="20" y="30" width="272" height="41"/>
+                                                    <view contentMode="scaleToFill" id="DQJ-0Z-0Bo">
+                                                        <rect key="frame" x="20" y="30" width="272" height="181"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="VSp-6k-Eu7">
                                                                 <rect key="frame" x="20" y="10" width="232" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ProductName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OUE-fO-gZo">
+                                                                <rect key="frame" x="20" y="47" width="93" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awo-7h-lCD">
+                                                                <rect key="frame" x="166" y="47" width="36" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Summ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TUw-Pq-W1F">
+                                                                <rect key="frame" x="210" y="47" width="42" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1621,6 +1642,9 @@
                         <outlet property="messageLabel" destination="1ix-hy-1Xi" id="O15-vX-jpj"/>
                         <outlet property="metroDescriptionLabel" destination="awe-ad-ZgI" id="pi3-pE-DLN"/>
                         <outlet property="metroLabel" destination="HEo-on-N8m" id="Dhd-AW-xXV"/>
+                        <outlet property="productName" destination="OUE-fO-gZo" id="ps8-3a-vdC"/>
+                        <outlet property="productPriceSumm" destination="TUw-Pq-W1F" id="15Z-j5-3KS"/>
+                        <outlet property="productsCount" destination="Awo-7h-lCD" id="sGU-bK-Xnt"/>
                         <outlet property="scrollView" destination="kYL-x6-Sd5" id="2T6-4z-Ig3"/>
                         <outlet property="showOrHideButtonFirst" destination="zNw-GR-Xyi" id="FII-rm-Zo6"/>
                         <outlet property="showOrHideButtonSecond" destination="qBw-TT-g2k" id="nq8-f4-7QJ"/>
@@ -1771,6 +1795,9 @@
                 <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="metroDescriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="metroLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productPriceSumm" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productsCount" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="showOrHideButtonFirst" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="showOrHideButtonSecond" candidateClass="UIButton"/>

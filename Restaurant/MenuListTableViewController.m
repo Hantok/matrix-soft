@@ -49,6 +49,7 @@
         ProductDataStruct *dataStruct;
         NSLog(@"first query begin");
         NSArray *data = [self.db fetchAllProductsFromMenu:self.kindOfMenu.menuId];
+        
 //        NSLog(@"first query end. Second query begin");
 //        NSDictionary *pictures = [self.db fetchImageURLAndDatabyMenuID:self.kindOfMenu.menuId];
 //        sNSLog(@"Second query end. For begin");

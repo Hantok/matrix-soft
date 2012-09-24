@@ -60,7 +60,8 @@
 }
 
 - (void)viewDidLoad
-{
+{    
+//    NSArray *mut = [self.content fetchProductWithId:@"158"];
 //    [self.tableView setBackgroundColor:[UIColor darkGrayColor]];
     
 //    NSMutableArray *arr = self.historyArray;
@@ -123,9 +124,12 @@
     }
     
 //    cell.dateOfOrder.text = [self.historyArray objectAtIndex:indexPath.row];
-//    self.addressDescriptionLabel.text = [NSString stringWithFormat:[self.historyDictionary valueForKey:@"street"], @", ", [self.historyDictionary valueForKey:@"house"]];
+    
     cell.dateOfOrder.text = [[self.historyArray objectAtIndex:indexPath.row] valueForKey:@"date"];
-    cell.numberOfOrder.text = [[self.historyArray objectAtIndex:indexPath.row] valueForKey:@"orderID"];
+//    cell.dateOfOrder.text = [NSString stringWithFormat:@"%@%@", @"from ", [[self.historyArray objectAtIndex:indexPath.row] valueForKey:@"date"]];
+    
+//    cell.numberOfOrder.text = [[self.historyArray objectAtIndex:indexPath.row] valueForKey:@"orderID"];
+    cell.numberOfOrder.text = [NSString stringWithFormat:@"%@%@", @"№ ", [[self.historyArray objectAtIndex:indexPath.row] valueForKey:@"orderID"]];
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = cell.bounds;
@@ -200,6 +204,7 @@
 {    
 //    [segue.destinationViewController setTempStr:[self.historyArray objectAtIndex:self.selectedRow]];
     [segue.destinationViewController setHistoryDictionary:[self.historyArray objectAtIndex:self.selectedRow]];
+    [segue.destinationViewController setProductsArray:[self.content fetchProductWithId:@"158"]];
 }
 
 @end
