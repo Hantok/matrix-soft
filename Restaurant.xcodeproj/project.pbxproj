@@ -65,6 +65,7 @@
 		F51635AA15E61CBA00F76ECE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51635AC15E61CBA00F76ECE /* MainStoryboard_iPad.storyboard */; };
 		F51A455D15E3DDC600FD0BB9 /* alphanumeric-plus-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = F51A455C15E3DDC600FD0BB9 /* alphanumeric-plus-sign.png */; };
 		F51B206215AB2EE600074DA1 /* white-cart_big.png in Resources */ = {isa = PBXBuildFile; fileRef = F51B206115AB2EE500074DA1 /* white-cart_big.png */; };
+		F51CC7AC16119BF7004B4A40 /* Line1pVerticalGray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F51CC7AB16119BF7004B4A40 /* Line1pVerticalGray.jpg */; };
 		F52225CB1594A0A7003E2728 /* Button_orange_rev2.png in Resources */ = {isa = PBXBuildFile; fileRef = F52225CA1594A0A7003E2728 /* Button_orange_rev2.png */; };
 		F52225CD1594A1F8003E2728 /* Button_black_light_rev2.png in Resources */ = {isa = PBXBuildFile; fileRef = F52225CC1594A1F8003E2728 /* Button_black_light_rev2.png */; };
 		F52225D31594BCA4003E2728 /* Button_black_dark_rev2.png in Resources */ = {isa = PBXBuildFile; fileRef = F52225D21594BCA4003E2728 /* Button_black_dark_rev2.png */; };
@@ -122,6 +123,8 @@
 		F58BD5AD156E7B8A00D31A09 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58BD5AC156E7B8A00D31A09 /* MessageUI.framework */; };
 		F58E734F15D1358800CBCE65 /* MapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E734E15D1358800CBCE65 /* MapViewAnnotation.m */; };
 		F58EC35615DB8A4E00ADBA80 /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC35515DB8A4E00ADBA80 /* ReservationViewController.m */; };
+		F58F572E1610A7E0003A1798 /* ProductDescriptionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F58F572C1610A7E0003A1798 /* ProductDescriptionViewCell.h */; };
+		F58F572F1610A7E0003A1798 /* ProductDescriptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58F572D1610A7E0003A1798 /* ProductDescriptionViewCell.m */; };
 		F58F877816085B17002F3765 /* XMLParseResponseFromTheServer.h in Headers */ = {isa = PBXBuildFile; fileRef = F58F877616085B17002F3765 /* XMLParseResponseFromTheServer.h */; };
 		F58F877916085B17002F3765 /* XMLParseResponseFromTheServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F58F877716085B17002F3765 /* XMLParseResponseFromTheServer.m */; };
 		F591A9BC1607214200720104 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = F591A9BB1607214200720104 /* clock.png */; };
@@ -299,6 +302,7 @@
 		F51635AB15E61CBA00F76ECE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F51A455C15E3DDC600FD0BB9 /* alphanumeric-plus-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alphanumeric-plus-sign.png"; sourceTree = "<group>"; };
 		F51B206115AB2EE500074DA1 /* white-cart_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-cart_big.png"; sourceTree = "<group>"; };
+		F51CC7AB16119BF7004B4A40 /* Line1pVerticalGray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Line1pVerticalGray.jpg; sourceTree = "<group>"; };
 		F52225CA1594A0A7003E2728 /* Button_orange_rev2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_orange_rev2.png; sourceTree = "<group>"; };
 		F52225CC1594A1F8003E2728 /* Button_black_light_rev2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_black_light_rev2.png; sourceTree = "<group>"; };
 		F52225D21594BCA4003E2728 /* Button_black_dark_rev2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_black_dark_rev2.png; sourceTree = "<group>"; };
@@ -324,6 +328,8 @@
 		F58E734E15D1358800CBCE65 /* MapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewAnnotation.m; sourceTree = "<group>"; };
 		F58EC35415DB8A4E00ADBA80 /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
 		F58EC35515DB8A4E00ADBA80 /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
+		F58F572C1610A7E0003A1798 /* ProductDescriptionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDescriptionViewCell.h; sourceTree = "<group>"; };
+		F58F572D1610A7E0003A1798 /* ProductDescriptionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDescriptionViewCell.m; sourceTree = "<group>"; };
 		F58F877616085B17002F3765 /* XMLParseResponseFromTheServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParseResponseFromTheServer.h; sourceTree = "<group>"; };
 		F58F877716085B17002F3765 /* XMLParseResponseFromTheServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParseResponseFromTheServer.m; sourceTree = "<group>"; };
 		F591A9BB1607214200720104 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
@@ -537,6 +543,7 @@
 		78EF80B41573A51300478EEB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F51CC7AB16119BF7004B4A40 /* Line1pVerticalGray.jpg */,
 				F591A9BB1607214200720104 /* clock.png */,
 				F59A9EDB16034DC600D8A6ED /* buttonPlayRight.png */,
 				F59A9EDC16034DC600D8A6ED /* buttonPlayDown.png */,
@@ -652,6 +659,8 @@
 		F5E93A4D156CFFB3005ED3ED /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F58F572C1610A7E0003A1798 /* ProductDescriptionViewCell.h */,
+				F58F572D1610A7E0003A1798 /* ProductDescriptionViewCell.m */,
 				F59A9ECD16034C3800D8A6ED /* HistoryPartCell.h */,
 				F59A9ECE16034C3800D8A6ED /* HistoryPartCell.m */,
 				F59A9ECF16034C3800D8A6ED /* HistoryPartCell.xib */,
@@ -735,6 +744,7 @@
 				F59A9ED516034C5A00D8A6ED /* HistoryTableListViewController.h in Headers */,
 				F59A9ED916034C6C00D8A6ED /* PartOfHistoryViewController.h in Headers */,
 				F58F877816085B17002F3765 /* XMLParseResponseFromTheServer.h in Headers */,
+				F58F572E1610A7E0003A1798 /* ProductDescriptionViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,6 +911,7 @@
 				F59A9EDE16034DC600D8A6ED /* buttonPlayDown.png in Resources */,
 				F591A9BC1607214200720104 /* clock.png in Resources */,
 				4E0EEABB160B45D40095AD29 /* Default-568h@2x.png in Resources */,
+				F51CC7AC16119BF7004B4A40 /* Line1pVerticalGray.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +965,7 @@
 				F59A9ED616034C5A00D8A6ED /* HistoryTableListViewController.m in Sources */,
 				F59A9EDA16034C6C00D8A6ED /* PartOfHistoryViewController.m in Sources */,
 				F58F877916085B17002F3765 /* XMLParseResponseFromTheServer.m in Sources */,
+				F58F572F1610A7E0003A1798 /* ProductDescriptionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

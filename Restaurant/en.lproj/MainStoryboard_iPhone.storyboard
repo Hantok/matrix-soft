@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VBQ-mB-ewb">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
@@ -1549,11 +1548,11 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="jdE-co-01x">
-                                        <rect key="frame" x="0.0" y="61" width="320" height="282"/>
+                                        <rect key="frame" x="0.0" y="61" width="320" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="p3m-rO-0h0">
-                                                <rect key="frame" x="0.0" y="1" width="320" height="242"/>
+                                                <rect key="frame" x="0.0" y="1" width="320" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You are ordered:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hxp-Xs-xtq">
@@ -1578,36 +1577,29 @@
                                                             <action selector="infoOfProductInOrder:" destination="470-x0-Ti8" eventType="touchUpInside" id="Mbq-KP-uRm"/>
                                                         </connections>
                                                     </button>
-                                                    <view contentMode="scaleToFill" id="DQJ-0Z-0Bo">
-                                                        <rect key="frame" x="20" y="30" width="272" height="181"/>
+                                                    <view alpha="0.0" contentMode="scaleToFill" id="DQJ-0Z-0Bo">
+                                                        <rect key="frame" x="20" y="30" width="272" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="VSp-6k-Eu7">
-                                                                <rect key="frame" x="20" y="10" width="232" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ProductName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OUE-fO-gZo">
-                                                                <rect key="frame" x="10" y="47" width="93" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cou" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awo-7h-lCD">
-                                                                <rect key="frame" x="189" y="47" width="23" height="21"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OUE-fO-gZo">
+                                                                <rect key="frame" x="10" y="10" width="142" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Summ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TUw-Pq-W1F">
-                                                                <rect key="frame" x="222" y="47" width="40" height="21"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awo-7h-lCD">
+                                                                <rect key="frame" x="179" y="10" width="33" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sum" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TUw-Pq-W1F">
+                                                                <rect key="frame" x="222" y="10" width="40" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -1648,7 +1640,6 @@
                         <outlet property="scrollView" destination="kYL-x6-Sd5" id="2T6-4z-Ig3"/>
                         <outlet property="showOrHideButtonFirst" destination="zNw-GR-Xyi" id="FII-rm-Zo6"/>
                         <outlet property="showOrHideButtonSecond" destination="qBw-TT-g2k" id="nq8-f4-7QJ"/>
-                        <outlet property="tempLabel2" destination="VSp-6k-Eu7" id="ITk-N5-Pef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYE-B9-f19" userLabel="First Responder" sceneMemberID="firstResponder"/>

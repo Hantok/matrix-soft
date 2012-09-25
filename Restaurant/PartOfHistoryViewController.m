@@ -7,6 +7,7 @@
 //
 
 #import "PartOfHistoryViewController.h"
+#import "ProductDescriptionViewCell.h"
 
 @interface PartOfHistoryViewController ()
 
@@ -114,11 +115,55 @@
     self.metroDescriptionLabel.text = [self.historyDictionary valueForKey:@"metro"];
     self.additionalDescriptionLabel.text = [self.historyDictionary valueForKey:@"additional_info"];
     
-    self.productName.text = [[[[self.productsArray objectAtIndex:0] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
-    self.productsCount.text = [[self.productsArray objectAtIndex:0] valueForKey:@"count"];
-    int productCount = [[self.historyDictionary valueForKey:@"productsCounts"] intValue];
-    float productPrice = [[[[[self.productsArray objectAtIndex:0] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue];
-    self.productPriceSumm.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
+//    self.productName.text = [[[[self.productsArray objectAtIndex:0] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
+//    self.productsCount.text = [[self.productsArray objectAtIndex:0] valueForKey:@"count"];
+//    int productCount = [[self.historyDictionary valueForKey:@"productsCounts"] intValue];
+//    float productPrice = [[[[[self.productsArray objectAtIndex:0] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue];
+//    self.productPriceSumm.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
+    
+    NSMutableArray *viewCellArray = [[NSMutableArray alloc] init];
+    ProductDescriptionViewCell *viewCell;
+    float viewCellSumHeight = 0;
+    
+    for (int i = 0; i < self.productsArray.count; i++) {
+        if (i == 0) {
+            viewCell = [[ProductDescriptionViewCell alloc] init];
+            viewCell.productName.text = [[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
+            viewCell.productCount.text = [[self.productsArray objectAtIndex:i] valueForKey:@"count"];
+            int productCount = [viewCell.productCount.text intValue];
+            float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue];
+            viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
+            [viewCell.productName sizeToFit];
+            [viewCell setFrame:CGRectMake(0, 40, 272, viewCell.productName.frame.size.height)];
+            [viewCell.lineSeparator setFrame:CGRectMake(216, 0, 1, viewCell.productName.frame.size.height)];
+            
+            viewCellSumHeight = viewCellSumHeight + viewCell.frame.size.height;
+            
+            [self.infoOfProductInOrderDetailView addSubview:viewCell];
+            [viewCellArray addObject:viewCell];
+        }
+        else {
+            viewCell = [[ProductDescriptionViewCell alloc] init];
+            viewCell.productName.text = [[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
+            viewCell.productCount.text = [[self.productsArray objectAtIndex:i] valueForKey:@"count"];
+            int productCount = [viewCell.productCount.text intValue];
+            float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue];
+            viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
+            [viewCell.productName sizeToFit];
+            float previousY = [[viewCellArray objectAtIndex:i - 1] frame].origin.y;
+            float previousH = [[viewCellArray objectAtIndex:i - 1] frame].size.height;
+            [viewCell setFrame:CGRectMake(0, previousY + previousH, 272, viewCell.productName.frame.size.height)];
+            [viewCell.lineSeparator setFrame:CGRectMake(216, 0, 1, viewCell.productName.frame.size.height)];
+            
+            viewCellSumHeight = viewCellSumHeight + viewCell.frame.size.height;
+
+            [self.infoOfProductInOrderDetailView addSubview:viewCell];
+            [viewCellArray addObject:viewCell];
+        }
+    }
+        
+    self.infoOfProductInOrderDetailView.frame = CGRectMake(20, 30, 272, 40 + viewCellSumHeight + 10);
+    
 }
 
 - (void)viewDidUnload
