@@ -408,11 +408,11 @@
         PromotionStruct *promotion = [self.promotionsArray objectAtIndex:i];
         if (![promotion image])
         {
-            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:[promotion link]]];
-            UIImage *image = [UIImage imageWithData: imageData];
-            [promotion setImage:image];
-            [self.db SavePictureToCoreData:[promotion idPicture] toData:imageData];
-            [imageArray addObject:image];
+//            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:[promotion link]]];
+//            UIImage *image = [UIImage imageWithData: imageData];
+//            [promotion setImage:image];
+//            [self.db SavePictureToCoreData:[promotion idPicture] toData:imageData];
+//            [imageArray addObject:image];
         }
         else
         {

@@ -318,28 +318,28 @@
     {
         //якщо нема лого - качаєм і зберігаємо картинку
         //----------------------
-        if (![[NSUserDefaults standardUserDefaults] valueForKey:@"logo"])
-        {
-            NSString *logoURLstring = [[NSUserDefaults standardUserDefaults] valueForKey:@"logoURL"];
-            NSError* error = nil;
-//            NSData *dataImage =  [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURLstring]];
-            NSData *dataImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURLstring] options:NSDataReadingUncached error:&error];
-            if (error) {
-                NSLog(@"%@", [error localizedDescription]);
-            } else {
-                NSLog(@"Data has loaded successfully.");
-            }
-
-            if (dataImage)
-            {
-                [[NSUserDefaults standardUserDefaults] setValue:dataImage forKey:@"logo"];
-            }
-            else
-            {
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"logoVersion"];
-            }
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
+//        if (![[NSUserDefaults standardUserDefaults] valueForKey:@"logo"])
+//        {
+//            NSString *logoURLstring = [[NSUserDefaults standardUserDefaults] valueForKey:@"logoURL"];
+//            NSError* error = nil;
+////            NSData *dataImage =  [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURLstring]];
+//            NSData *dataImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURLstring] options:NSDataReadingUncached error:&error];
+//            if (error) {
+//                NSLog(@"%@", [error localizedDescription]);
+//            } else {
+//                NSLog(@"Data has loaded successfully.");
+//            }
+//
+//            if (dataImage)
+//            {
+//                [[NSUserDefaults standardUserDefaults] setValue:dataImage forKey:@"logo"];
+//            }
+//            else
+//            {
+//                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"logoVersion"];
+//            }
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//        }
         //----------------------
         
         [self performSegueWithIdentifier:@"toMain" sender:self];

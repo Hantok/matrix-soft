@@ -98,7 +98,7 @@
     
     self.infoOfOrderContainerInnerView.frame = CGRectMake(0, 1, self.firstContainerWidth, self.firstContainerHeight - 2);
 //    self.infoOfOrderDetailView.frame = CGRectMake(20, 30, 272, self.tempLabel.frame.size.height + 10);
-    self.infoOfOrderDetailView.frame = CGRectMake(20, 30, 272, self.additionalDescriptionLabel.frame.origin.y + self.additionalDescriptionLabel.frame.size.height + 10);
+    self.infoOfOrderDetailView.frame = CGRectMake(15, 40, 290, self.additionalDescriptionLabel.frame.origin.y + self.additionalDescriptionLabel.frame.size.height + 10);
     
     self.infoOfProductInOrderInnerView.frame = CGRectMake(0, 1, self.secondContainerWidth, self.secondContainerHeight - 2);
 //    [self.tempLabel2 sizeToFit];
@@ -124,6 +124,7 @@
     NSMutableArray *viewCellArray = [[NSMutableArray alloc] init];
     ProductDescriptionViewCell *viewCell;
     float viewCellSumHeight = 0;
+    float totalProductPrice = 0;
     
     for (int i = 0; i < self.productsArray.count; i++) {
         if (i == 0) {
@@ -131,11 +132,12 @@
             viewCell.productName.text = [[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
             viewCell.productCount.text = [[self.productsArray objectAtIndex:i] valueForKey:@"count"];
             int productCount = [viewCell.productCount.text intValue];
-            float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue];
-            viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
+            float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue] * [[[NSUserDefaults standardUserDefaults] objectForKey:@"CurrencyCoefficient"] floatValue];
+            viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f %@", productCount * productPrice, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
+            totalProductPrice = totalProductPrice + viewCell.productPriceSum.text.floatValue;
             [viewCell.productName sizeToFit];
             [viewCell setFrame:CGRectMake(0, 40, 272, viewCell.productName.frame.size.height)];
-            [viewCell.lineSeparator setFrame:CGRectMake(216, 0, 1, viewCell.productName.frame.size.height)];
+            [viewCell.lineSeparator setFrame:CGRectMake(209, 0, 1, viewCell.productName.frame.size.height)];
             
             viewCellSumHeight = viewCellSumHeight + viewCell.frame.size.height;
             
@@ -147,13 +149,14 @@
             viewCell.productName.text = [[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
             viewCell.productCount.text = [[self.productsArray objectAtIndex:i] valueForKey:@"count"];
             int productCount = [viewCell.productCount.text intValue];
-            float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue];
-            viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f", productCount * productPrice];
+            float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue] * [[[NSUserDefaults standardUserDefaults] objectForKey:@"CurrencyCoefficient"] floatValue];
+            viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f %@", productCount * productPrice, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
+            totalProductPrice = totalProductPrice + viewCell.productPriceSum.text.floatValue;
             [viewCell.productName sizeToFit];
             float previousY = [[viewCellArray objectAtIndex:i - 1] frame].origin.y;
             float previousH = [[viewCellArray objectAtIndex:i - 1] frame].size.height;
             [viewCell setFrame:CGRectMake(0, previousY + previousH, 272, viewCell.productName.frame.size.height)];
-            [viewCell.lineSeparator setFrame:CGRectMake(216, 0, 1, viewCell.productName.frame.size.height)];
+            [viewCell.lineSeparator setFrame:CGRectMake(209, 0, 1, viewCell.productName.frame.size.height)];
             
             viewCellSumHeight = viewCellSumHeight + viewCell.frame.size.height;
 
@@ -161,8 +164,22 @@
             [viewCellArray addObject:viewCell];
         }
     }
-        
-    self.infoOfProductInOrderDetailView.frame = CGRectMake(20, 30, 272, 40 + viewCellSumHeight + 10);
+    
+    UILabel *totalPriceSumCaption = [[UILabel alloc] initWithFrame:CGRectMake(160, 40 + viewCellSumHeight + 10, 37, 15)];
+    [totalPriceSumCaption setFont:[UIFont systemFontOfSize:13]];
+    [totalPriceSumCaption setTextColor:[UIColor darkGrayColor]];
+    [totalPriceSumCaption setBackgroundColor:[UIColor clearColor]];
+    [totalPriceSumCaption setText:@"Total: "];
+    [self.infoOfProductInOrderDetailView addSubview:totalPriceSumCaption];
+    
+    UILabel *totalPriceSumValue = [[UILabel alloc] initWithFrame:CGRectMake(totalPriceSumCaption.frame.origin.x + totalPriceSumCaption.frame.size.width, totalPriceSumCaption.frame.origin.y, 90, totalPriceSumCaption.frame.size.height)];
+    totalPriceSumValue.text = [NSString stringWithFormat:@"%7.2f %@", totalProductPrice, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
+    [totalPriceSumValue setFont:[UIFont boldSystemFontOfSize:13]];
+    [totalPriceSumValue setBackgroundColor:[UIColor clearColor]];
+    [self.infoOfProductInOrderDetailView addSubview:totalPriceSumValue];
+    
+    
+    self.infoOfProductInOrderDetailView.frame = CGRectMake(15, 40, 290, totalPriceSumCaption.frame.origin.y + totalPriceSumCaption.frame.size.height + 10);
     
 }
 
