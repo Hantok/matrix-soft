@@ -66,6 +66,15 @@
 @synthesize productName = _productName;
 @synthesize productsArray = _productsArray;
 
+- (GettingCoreContent *)db
+{
+    if(!_db)
+    {
+        _db = [[GettingCoreContent alloc] init];
+    }
+    return  _db;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -125,6 +134,7 @@
     ProductDescriptionViewCell *viewCell;
     float viewCellSumHeight = 0;
     float totalProductPrice = 0;
+    float totalProductPriceWithDiscount = 0;
     
     for (int i = 0; i < self.productsArray.count; i++) {
         if (i == 0) {
@@ -135,6 +145,8 @@
             float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue] * [[[NSUserDefaults standardUserDefaults] objectForKey:@"CurrencyCoefficient"] floatValue];
             viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f %@", productCount * productPrice, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
             totalProductPrice = totalProductPrice + viewCell.productPriceSum.text.floatValue;
+            float discountCoeficient = [self.db fetchDiscountByIdDiscount:[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"idDiscount"]].floatValue;
+            totalProductPriceWithDiscount = totalProductPriceWithDiscount + viewCell.productPriceSum.text.floatValue - (viewCell.productPriceSum.text.floatValue * discountCoeficient);
             [viewCell.productName sizeToFit];
             [viewCell setFrame:CGRectMake(0, 40, 272, viewCell.productName.frame.size.height)];
             [viewCell.lineSeparator setFrame:CGRectMake(199, 0, 1, viewCell.productName.frame.size.height)];
@@ -152,6 +164,8 @@
             float productPrice = [[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"price"] floatValue] * [[[NSUserDefaults standardUserDefaults] objectForKey:@"CurrencyCoefficient"] floatValue];
             viewCell.productPriceSum.text = [NSString stringWithFormat:@"%6.2f %@", productCount * productPrice, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
             totalProductPrice = totalProductPrice + viewCell.productPriceSum.text.floatValue;
+            float discountCoeficient = [self.db fetchDiscountByIdDiscount:[[[[self.productsArray objectAtIndex:i] valueForKey:@"resultArray"] objectAtIndex:0] valueForKey:@"idDiscount"]].floatValue;
+            totalProductPriceWithDiscount = totalProductPriceWithDiscount + viewCell.productPriceSum.text.floatValue - (viewCell.productPriceSum.text.floatValue * discountCoeficient);
             [viewCell.productName sizeToFit];
             float previousY = [[viewCellArray objectAtIndex:i - 1] frame].origin.y;
             float previousH = [[viewCellArray objectAtIndex:i - 1] frame].size.height;
@@ -178,10 +192,20 @@
     [totalPriceSumValue setBackgroundColor:[UIColor clearColor]];
     [self.infoOfProductInOrderDetailView addSubview:totalPriceSumValue];
     
+    UILabel *totalPriceSumWithDiscountCaption = [[UILabel alloc] initWithFrame:CGRectMake(100, totalPriceSumCaption.frame.origin.y + totalPriceSumCaption.frame.size.height, 92, totalPriceSumCaption.frame.size.height)];
+    totalPriceSumWithDiscountCaption.text = @"With discounts: ";
+    [totalPriceSumWithDiscountCaption setFont:[UIFont systemFontOfSize:13]];
+    [totalPriceSumWithDiscountCaption setTextColor:[UIColor orangeColor]];
+    [totalPriceSumWithDiscountCaption setBackgroundColor:[UIColor clearColor]];
+    [self.infoOfProductInOrderDetailView addSubview:totalPriceSumWithDiscountCaption];
     
-    self.infoOfProductInOrderDetailView.frame = CGRectMake(15, 40, 290, totalPriceSumCaption.frame.origin.y + totalPriceSumCaption.frame.size.height + 10);
+    UILabel *totalPriceSumWithDiscountValue = [[UILabel alloc] initWithFrame:CGRectMake(totalPriceSumWithDiscountCaption.frame.origin.x + totalPriceSumWithDiscountCaption.frame.size.width, totalPriceSumWithDiscountCaption.frame.origin.y, 92, totalPriceSumWithDiscountCaption.frame.size.height)];
+    totalPriceSumWithDiscountValue.text = [NSString stringWithFormat:@"%7.2f %@", totalProductPriceWithDiscount, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
+    [totalPriceSumWithDiscountValue setFont:[UIFont boldSystemFontOfSize:13]];
+    [totalPriceSumWithDiscountValue setBackgroundColor:[UIColor clearColor]];
+    [self.infoOfProductInOrderDetailView addSubview:totalPriceSumWithDiscountValue];
     
-//    [self.db fetchDiscountByIdDiscount:[[self.productsArray objectAtIndex:0] valueForKey:@"count"]];
+    self.infoOfProductInOrderDetailView.frame = CGRectMake(15, 40, 290, totalPriceSumWithDiscountCaption.frame.origin.y + totalPriceSumWithDiscountCaption.frame.size.height + 10);    
 }
 
 - (void)viewDidUnload

@@ -237,7 +237,7 @@
                     <navigationItem key="navigationItem" title="History" id="mNm-EU-XGF"/>
                     <connections>
                         <outlet property="tableView" destination="dn2-Mz-4G1" id="yGS-gk-HqX"/>
-                        <segue destination="470-x0-Ti8" kind="push" identifier="toHistoryPartDetail" id="rOT-Dc-P0Y"/>
+                        <segue destination="470-x0-Ti8" kind="push" identifier="toHistoryPartDetail" id="SdE-Jd-90N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HkW-G2-xyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1548,11 +1548,11 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="jdE-co-01x">
-                                        <rect key="frame" x="0.0" y="169" width="320" height="186"/>
+                                        <rect key="frame" x="0.0" y="169" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="p3m-rO-0h0">
-                                                <rect key="frame" x="0.0" y="1" width="320" height="155"/>
+                                                <rect key="frame" x="0.0" y="1" width="320" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You are ordered:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hxp-Xs-xtq">
@@ -1577,8 +1577,8 @@
                                                             <action selector="infoOfProductInOrder:" destination="470-x0-Ti8" eventType="touchUpInside" id="Mbq-KP-uRm"/>
                                                         </connections>
                                                     </button>
-                                                    <view contentMode="scaleToFill" id="DQJ-0Z-0Bo">
-                                                        <rect key="frame" x="15" y="30" width="290" height="88"/>
+                                                    <view alpha="0.0" contentMode="scaleToFill" id="DQJ-0Z-0Bo">
+                                                        <rect key="frame" x="15" y="30" width="290" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OUE-fO-gZo">
@@ -1877,6 +1877,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="p5O-gN-8X0"/>
-        <segue reference="7wA-XP-7Mm"/>
+        <segue reference="uuy-7P-Ssv"/>
     </inferredMetricsTieBreakers>
 </document>
