@@ -137,7 +137,7 @@
             totalProductPrice = totalProductPrice + viewCell.productPriceSum.text.floatValue;
             [viewCell.productName sizeToFit];
             [viewCell setFrame:CGRectMake(0, 40, 272, viewCell.productName.frame.size.height)];
-            [viewCell.lineSeparator setFrame:CGRectMake(209, 0, 1, viewCell.productName.frame.size.height)];
+            [viewCell.lineSeparator setFrame:CGRectMake(199, 0, 1, viewCell.productName.frame.size.height)];
             
             viewCellSumHeight = viewCellSumHeight + viewCell.frame.size.height;
             
@@ -156,7 +156,7 @@
             float previousY = [[viewCellArray objectAtIndex:i - 1] frame].origin.y;
             float previousH = [[viewCellArray objectAtIndex:i - 1] frame].size.height;
             [viewCell setFrame:CGRectMake(0, previousY + previousH, 272, viewCell.productName.frame.size.height)];
-            [viewCell.lineSeparator setFrame:CGRectMake(209, 0, 1, viewCell.productName.frame.size.height)];
+            [viewCell.lineSeparator setFrame:CGRectMake(199, 0, 1, viewCell.productName.frame.size.height)];
             
             viewCellSumHeight = viewCellSumHeight + viewCell.frame.size.height;
 
@@ -165,7 +165,7 @@
         }
     }
     
-    UILabel *totalPriceSumCaption = [[UILabel alloc] initWithFrame:CGRectMake(160, 40 + viewCellSumHeight + 10, 37, 15)];
+    UILabel *totalPriceSumCaption = [[UILabel alloc] initWithFrame:CGRectMake(155, 40 + viewCellSumHeight + 10, 37, 15)];
     [totalPriceSumCaption setFont:[UIFont systemFontOfSize:13]];
     [totalPriceSumCaption setTextColor:[UIColor darkGrayColor]];
     [totalPriceSumCaption setBackgroundColor:[UIColor clearColor]];
@@ -181,6 +181,7 @@
     
     self.infoOfProductInOrderDetailView.frame = CGRectMake(15, 40, 290, totalPriceSumCaption.frame.origin.y + totalPriceSumCaption.frame.size.height + 10);
     
+//    [self.db fetchDiscountByIdDiscount:[[self.productsArray objectAtIndex:0] valueForKey:@"count"]];
 }
 
 - (void)viewDidUnload

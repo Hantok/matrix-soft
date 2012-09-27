@@ -99,6 +99,7 @@
 
 - (void)viewDidLoad
 {
+    [self.content fetchDiscountByIdDiscount:@""];
     //[super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.scrollView.contentSize = CGSizeMake(320, 430);

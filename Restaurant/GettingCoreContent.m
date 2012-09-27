@@ -532,6 +532,26 @@
     }
 }
 
+- (NSString *)fetchDiscountByIdDiscount:(NSString *)idDiscount
+{
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Discounts" inManagedObjectContext:self.managedObjectContext]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"underbarid==%@", idDiscount]];
+    
+    NSError *error;
+    NSArray *debug= [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (debug.count != 0)
+    {
+        NSManagedObject *objectToGet = [debug objectAtIndex:0];
+        return [objectToGet valueForKey:@"value"];
+    }
+    else
+    {
+        return nil;
+    }
+
+}
+
 - (NSURL *)fetchImageURLbyPictureID:(NSString *)pictureId
 {
     NSManagedObjectContext * context = self.managedObjectContext;

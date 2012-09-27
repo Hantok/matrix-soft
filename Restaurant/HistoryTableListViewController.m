@@ -204,6 +204,7 @@
 {    
     [segue.destinationViewController setHistoryDictionary:[self.historyArray objectAtIndex:self.selectedRow]];
     [segue.destinationViewController setProductsArray:[self.content fetchProductWithId:[[self.historyArray objectAtIndex:self.selectedRow] valueForKey:@"productsIDs"] withCounts:[[self.historyArray objectAtIndex:self.selectedRow] valueForKey:@"productsCounts"]]];
+//    NSString *str = [self.content fetchDiscountByIdDiscount:@"78"];
 }
 
 @end

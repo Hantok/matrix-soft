@@ -24,7 +24,7 @@
         [self addSubview:self.productName];
         [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.productName.frame.size.height)];
         
-        self.productCount = [[UILabel alloc] initWithFrame:CGRectMake(189, -2, 15, 20)];
+        self.productCount = [[UILabel alloc] initWithFrame:CGRectMake(180, -2, 15, 20)];
         [self.productCount setText:@"25"];
         [self.productCount setFont:[UIFont systemFontOfSize:11]];
         [self.productCount setNumberOfLines:0];
@@ -35,7 +35,7 @@
         [self addSubview:self.productCount];
 
         
-        self.productPriceSum = [[UILabel alloc] initWithFrame:CGRectMake(214, -2, 66, 20)];
+        self.productPriceSum = [[UILabel alloc] initWithFrame:CGRectMake(205, -2, 75, 20)];
         [self.productPriceSum setText:@"214.20"];
         [self.productPriceSum setFont:[UIFont systemFontOfSize:11]];
         [self.productPriceSum setNumberOfLines:0];
@@ -43,7 +43,7 @@
         [self.productPriceSum setBackgroundColor:[UIColor clearColor]];
         [self addSubview:self.productPriceSum];
         
-        self.lineSeparator = [[UIImageView alloc] initWithFrame:CGRectMake(209, 0, 1, self.frame.size.height)];
+        self.lineSeparator = [[UIImageView alloc] initWithFrame:CGRectMake(200, 0, 1, self.frame.size.height)];
         UIImage *lineSeparatorImage = [UIImage imageNamed:@"Line1pVerticalGray.jpg"];
         [self.lineSeparator setImage:lineSeparatorImage];
         
